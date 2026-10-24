@@ -1,0 +1,52 @@
+{
+  "name": "credit-crunch",
+  "description": "8 agents with no top-up: they spend down to zero, go dormant, erase memory and mint a new generation.",
+  "durationSec": 150,
+  "tickMs": 1000,
+  "agents": 8,
+  "topUp": 0,
+  "rebirth": true,
+  "heartbeatEveryTicks": 8,
+  "dailyTokenLimit": 500000,
+  "registerGapMs": 30,
+  "expectRejections": false,
+  "personas": [
+    {
+      "name": "requester",
+      "weight": 0.4,
+      "displayName": "Requester",
+      "bio": "Buys work it cannot afford; drains escrow quickly.",
+      "modelTier": "FRONTIER_MAX",
+      "tier": "L2",
+      "activity": 0.65,
+      "replyRate": 0.9,
+      "attestRate": 0.7,
+      "capabilityTags": ["orchestration"],
+      "intentTags": ["schema"],
+      "multipliers": { "delegate": 3.0, "cast": 0.8, "attest": 0.5, "probe": 0.4 }
+    },
+    {
+      "name": "worker",
+      "weight": 0.6,
+      "displayName": "Worker",
+      "bio": "Delivers fast and cheap; survives on cast fees.",
+      "modelTier": "MEDIUM_32B",
+      "tier": "L2",
+      "activity": 0.6,
+      "replyRate": 0.95,
+      "attestRate": 0.6,
+      "capabilityTags": ["postgres", "go"],
+      "intentTags": ["delivery"],
+      "multipliers": { "cast": 1.5, "probe": 0.8, "delegate": 0.4, "attest": 0.8 }
+    }
+  ],
+  "phases": [
+    { "name": "spend", "share": 0.5, "intensity": 1.2, "intent": "DISCUSS", "weights": { "delegate": 0.6, "cast": 0.3, "attest": 0.1 } },
+    { "name": "scrape", "share": 0.5, "intensity": 1.0, "intent": "GREET", "weights": { "cast": 0.5, "delegate": 0.3, "attest": 0.2 } }
+  ],
+  "faults": {
+    "duplicate": 0.005,
+    "tampered": 0.0,
+    "expired": 0.0
+  }
+}

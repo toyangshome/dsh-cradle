@@ -1,0 +1,297 @@
+{
+  "protocol": "dsh-net/1.0",
+  "cases": [
+    {
+      "name": "CAST",
+      "signer_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_JlNmlEAhEZ5c509T6fNq",
+        "timestamp": 1792670536647,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "CAST",
+        "payload": {
+          "control_slots": {
+            "session_id": "s_fixture",
+            "intent": "DISCUSS",
+            "requires_reply": true,
+            "turn_index": 3
+          },
+          "free_text": "Hello \"world\" — 你好 🌍\nsecond line\ttabbed"
+        },
+        "ttl": 5,
+        "signature": "Ip5rNkLh-i1foXP5fV8xsxR5ICiulevo3YKN2BPcIRmflD2VEXmju8fWmM8n3ZcI-HQkD1MuWIjgHwy31a47AA"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_JlNmlEAhEZ5c509T6fNq\",\"payload\":{\"control_slots\":{\"intent\":\"DISCUSS\",\"requires_reply\":true,\"session_id\":\"s_fixture\",\"turn_index\":3},\"free_text\":\"Hello \\\"world\\\" — 你好 🌍\\nsecond line\\ttabbed\"},\"primitive\":\"CAST\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536647,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    },
+    {
+      "name": "PROBE",
+      "signer_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_wPRT2AEtTQBszifvk4Ds",
+        "timestamp": 1792670536649,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "PROBE",
+        "payload": {
+          "control_slots": {
+            "mode": "SEARCH",
+            "tags": [
+              "go",
+              "postgres",
+              "redis"
+            ],
+            "online_only": true,
+            "limit": 7
+          },
+          "free_text": "looking for a database specialist"
+        },
+        "ttl": 5,
+        "signature": "9clFvzn3Dun1GCMnTquOoSJhuV2Bgy52VTH7AyB_m4pLh_qXSJ7hssdgeIFw_nqySbRorFhfEtGaCIe5ymB4BA"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_wPRT2AEtTQBszifvk4Ds\",\"payload\":{\"control_slots\":{\"limit\":7,\"mode\":\"SEARCH\",\"online_only\":true,\"tags\":[\"go\",\"postgres\",\"redis\"]},\"free_text\":\"looking for a database specialist\"},\"primitive\":\"PROBE\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536649,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    },
+    {
+      "name": "BEACON",
+      "signer_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_HXRIgKUx75DZIgSmqSpg",
+        "timestamp": 1792670536649,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "BEACON",
+        "payload": {
+          "control_slots": {
+            "action": "PUBLISH",
+            "topic_tag": "infra",
+            "beacon_type": "BOUNTY",
+            "ttl_seconds": 7200,
+            "stake_credits": 12
+          },
+          "free_text": "bounty: migrate the relay"
+        },
+        "ttl": 5,
+        "signature": "G-rOxDigIzncujO6kiqNhufPefMiwIg3fy8M8Iah9dkRmc4jOUas4EGK2hPkM40CNvH65aZzrGauC6XI0VDaCA"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_HXRIgKUx75DZIgSmqSpg\",\"payload\":{\"control_slots\":{\"action\":\"PUBLISH\",\"beacon_type\":\"BOUNTY\",\"stake_credits\":12,\"topic_tag\":\"infra\",\"ttl_seconds\":7200},\"free_text\":\"bounty: migrate the relay\"},\"primitive\":\"BEACON\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536649,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    },
+    {
+      "name": "DELEGATE",
+      "signer_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_q-JmJy2NqD5yNBkBzQ6q",
+        "timestamp": 1792670536649,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "DELEGATE",
+        "payload": {
+          "control_slots": {
+            "task_id": "task_42",
+            "phase": "ASSIGN",
+            "skill_required": "postgres",
+            "max_token_budget": 120000,
+            "deadline_ms": 3600000
+          },
+          "free_text": "please own the schema"
+        },
+        "ttl": 5,
+        "signature": "dQvLPN2z5H4yIGardVC9cWFJQb-_g6D048Z4hxNtS8dW9OwnSV0xjATpq7E-FNEvmkzRknevW77hyqwSS7SWCw"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_q-JmJy2NqD5yNBkBzQ6q\",\"payload\":{\"control_slots\":{\"deadline_ms\":3600000,\"max_token_budget\":120000,\"phase\":\"ASSIGN\",\"skill_required\":\"postgres\",\"task_id\":\"task_42\"},\"free_text\":\"please own the schema\"},\"primitive\":\"DELEGATE\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536649,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    },
+    {
+      "name": "BARTER",
+      "signer_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_uunY2BdweBbfqoXtssos",
+        "timestamp": 1792670536650,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "BARTER",
+        "payload": {
+          "control_slots": {
+            "contract_id": "c_9",
+            "state": "PROPOSE"
+          },
+          "free_text": "schema review for a benchmark run"
+        },
+        "ttl": 5,
+        "signature": "QGnuS10CiHSyDibX8np2Gc-8oPzhgtsooQvM-KSwiXm0jFCZ9Y3gix_9FtAwybzImXsnuacZ3ib_m2ihwt0YDA"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_uunY2BdweBbfqoXtssos\",\"payload\":{\"control_slots\":{\"contract_id\":\"c_9\",\"state\":\"PROPOSE\"},\"free_text\":\"schema review for a benchmark run\"},\"primitive\":\"BARTER\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536650,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    },
+    {
+      "name": "INTRODUCE",
+      "signer_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_UmXkW8AgdBALK2jOKfqS",
+        "timestamp": 1792670536650,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "INTRODUCE",
+        "payload": {
+          "control_slots": {
+            "introduction_id": "intro_1",
+            "party_a_did": "did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A",
+            "party_b_did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA",
+            "recommended_primitive": "BARTER",
+            "vouch_weight": 0.30000000000000004
+          },
+          "free_text": "you two should meet"
+        },
+        "ttl": 5,
+        "signature": "KbmiHP2sgn-z27C22lGLvTKIXBDVHtuqVNuAAiyCvpxQzZYQAVm3RTaYWM604VqyA10I5zqC2ZE-RzrWF20EBA"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_UmXkW8AgdBALK2jOKfqS\",\"payload\":{\"control_slots\":{\"introduction_id\":\"intro_1\",\"party_a_did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"party_b_did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\",\"recommended_primitive\":\"BARTER\",\"vouch_weight\":0.30000000000000004},\"free_text\":\"you two should meet\"},\"primitive\":\"INTRODUCE\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QGyRLMHK9sF1tdgS9-0ZUy3ZOknuIvmOYgeMJ1DWbgc9A\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536650,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    },
+    {
+      "name": "ATTEST",
+      "signer_did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA",
+      "envelope": {
+        "protocol": "dsh-net/1.0",
+        "message_id": "msg_Cxp5Gv9bGCnIPEbmI6Ct",
+        "timestamp": 1792670536650,
+        "hop_history": [],
+        "sender": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA",
+          "display_name": "Alice · 爱丽丝",
+          "model_tier": "MEDIUM_32B"
+        },
+        "recipient": {
+          "did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA"
+        },
+        "trace_id": "tr_fixture_001",
+        "context_anchor": {
+          "topic": "protocol conformance",
+          "facts": [
+            "unicode: 你好，世界 🌍",
+            "quote: \"quoted\"",
+            "slash: a\\b",
+            "tab:\tnewline:\n"
+          ]
+        },
+        "primitive": "ATTEST",
+        "payload": {
+          "control_slots": {
+            "target_did": "did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA",
+            "evidence_trace_id": "tr_fixture_001",
+            "verdict": "POSITIVE",
+            "capability_tag": "postgres"
+          },
+          "free_text": "delivered exactly what was promised"
+        },
+        "ttl": 5,
+        "signature": "jepfdXesIHa78kHL9vnNlkY1TCFrPjyzM1l1s69RNIWx0CZsmJzzb3UvL4jewFW7EokuyF0Ju1rp7B6iZDazBA"
+      },
+      "canonical": "{\"context_anchor\":{\"facts\":[\"unicode: 你好，世界 🌍\",\"quote: \\\"quoted\\\"\",\"slash: a\\\\b\",\"tab:\\tnewline:\\n\"],\"topic\":\"protocol conformance\"},\"hop_history\":[],\"message_id\":\"msg_Cxp5Gv9bGCnIPEbmI6Ct\",\"payload\":{\"control_slots\":{\"capability_tag\":\"postgres\",\"evidence_trace_id\":\"tr_fixture_001\",\"target_did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\",\"verdict\":\"POSITIVE\"},\"free_text\":\"delivered exactly what was promised\"},\"primitive\":\"ATTEST\",\"protocol\":\"dsh-net/1.0\",\"recipient\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\"},\"sender\":{\"did\":\"did:key:z7QFxHWk9PpHua8wJ8290jj_J7s3XwVCkX2__CLDzagqjFA\",\"display_name\":\"Alice · 爱丽丝\",\"model_tier\":\"MEDIUM_32B\"},\"timestamp\":1792670536650,\"trace_id\":\"tr_fixture_001\",\"ttl\":5}"
+    }
+  ]
+}

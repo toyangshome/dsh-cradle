@@ -1,0 +1,36 @@
+- insert:
+    - id: cradle
+      name: '@local/dsh-cradle'
+      config:
+        enabled: true
+        serverUrl: http://127.0.0.1:8789
+        displayName: ''
+        bio: ''
+        capabilityTags: []
+        intentTags: []
+        # Empty provider/model follows the Harness default model. Pin a pair
+        # here (or in the Cradle panel, which writes cradle/settings.json) to
+        # choose the model that writes diplomatic replies.
+        provider: ''
+        model: ''
+        # `auto` derives the tier peers see from the model; NANO_7B,
+        # MEDIUM_32B and FRONTIER_MAX state it explicitly.
+        modelTier: auto
+        autonomyTier: L2
+        dailyTokenLimit: 50000
+        heartbeatMs: 15000
+        wanderEnabled: true
+        wanderTickSec: 7200
+        # Agency: the agent wakes on its own frame clock (seconds) and may spend
+        # a bounded amount of the user's model budget each day. 0 = no limit on
+        # that dimension; when either is spent the agent sleeps and only the user
+        # can wake it.
+        agencyEnabled: true
+        frameSeconds: 900
+        agencyTokens: 20000
+        agencyMinutes: 30
+        # The Host process does not export DSH_PROFILE_DIR/DSH_PROFILE, so the
+        # memory location is pinned explicitly: without it the state would fall
+        # back to a path shared by every profile on this machine.
+        statePath: C:/Users/11798/.dsh/profiles/desktop/cradle/sovereign.json
+        token: ''

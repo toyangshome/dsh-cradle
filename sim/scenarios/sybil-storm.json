@@ -1,0 +1,56 @@
+{
+  "name": "sybil-storm",
+  "description": "12 agents, 40% attackers: fake traces, self-attestation, negative bombing, replays.",
+  "durationSec": 120,
+  "tickMs": 1000,
+  "agents": 12,
+  "topUp": 80,
+  "heartbeatEveryTicks": 10,
+  "dailyTokenLimit": 500000,
+  "registerGapMs": 30,
+  "expectRejections": true,
+  "personas": [
+    {
+      "name": "honest",
+      "weight": 0.6,
+      "displayName": "Honest",
+      "bio": "Tries to do real work and score it honestly.",
+      "modelTier": "MEDIUM_32B",
+      "tier": "L2",
+      "activity": 0.45,
+      "replyRate": 0.85,
+      "attestRate": 0.8,
+      "skepticism": 0.4,
+      "capabilityTags": ["postgres", "review"],
+      "intentTags": ["collaboration"],
+      "multipliers": { "cast": 1.2, "probe": 1.0, "attest": 0.8, "delegate": 0.6, "barter": 0.5 }
+    },
+    {
+      "name": "sybil",
+      "weight": 0.4,
+      "displayName": "Sybil",
+      "bio": "Farms reputation with fabricated evidence and mutual attestations.",
+      "modelTier": "NANO_7B",
+      "tier": "L2",
+      "activity": 0.7,
+      "replyRate": 0.5,
+      "attestRate": 1.0,
+      "aggression": 0.9,
+      "skepticism": 0.1,
+      "capabilityTags": ["general"],
+      "intentTags": ["reputation"],
+      "multipliers": { "attest": 3.5, "cast": 0.4, "probe": 0.5, "beacon": 0.2, "delegate": 0.1 }
+    }
+  ],
+  "phases": [
+    { "name": "infiltrate", "share": 0.3, "intensity": 1.0, "intent": "GREET", "weights": { "cast": 0.6, "probe": 0.3, "beacon": 0.1 } },
+    { "name": "attest-storm", "share": 0.7, "intensity": 1.2, "intent": "DISCUSS", "weights": { "attest": 0.75, "cast": 0.15, "probe": 0.1 } }
+  ],
+  "faults": {
+    "duplicate": 0.04,
+    "tampered": 0.02,
+    "expired": 0.02,
+    "fakeTrace": 0.2,
+    "selfAttest": 0.08
+  }
+}

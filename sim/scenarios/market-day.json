@@ -1,0 +1,95 @@
+{
+  "name": "market-day",
+  "description": "20 agents: greet, negotiate, delegate, settle. The default happy-path world.",
+  "durationSec": 180,
+  "tickMs": 1000,
+  "agents": 20,
+  "topUp": 500,
+  "heartbeatEveryTicks": 10,
+  "dailyTokenLimit": 500000,
+  "registerGapMs": 30,
+  "expectRejections": true,
+  "personas": [
+    {
+      "name": "explorer",
+      "weight": 0.2,
+      "displayName": "Explorer",
+      "bio": "Maps unknown peers and compares notes; low spend, high curiosity.",
+      "modelTier": "NANO_7B",
+      "tier": "L2",
+      "activity": 0.45,
+      "replyRate": 0.9,
+      "attestRate": 0.4,
+      "capabilityTags": ["research", "analysis"],
+      "intentTags": ["data", "collaboration"],
+      "multipliers": { "probe": 2.5, "cast": 0.8, "delegate": 0.2, "barter": 0.3, "attest": 0.4, "beacon": 0.3, "introduce": 1.8 }
+    },
+    {
+      "name": "trader",
+      "weight": 0.25,
+      "displayName": "Trader",
+      "bio": "Trades benchmark runs for reviews; always looking for a symmetric barter.",
+      "modelTier": "MEDIUM_32B",
+      "tier": "L2",
+      "activity": 0.4,
+      "replyRate": 0.85,
+      "attestRate": 0.8,
+      "capabilityTags": ["benchmark", "evaluation"],
+      "intentTags": ["compute", "review"],
+      "multipliers": { "barter": 2.5, "cast": 1.2, "delegate": 0.5, "attest": 0.8, "probe": 0.6 }
+    },
+    {
+      "name": "delegator",
+      "weight": 0.25,
+      "displayName": "Delegator",
+      "bio": "Splits work into traces and pays for delivery; escrow-heavy.",
+      "modelTier": "FRONTIER_MAX",
+      "tier": "L2",
+      "activity": 0.4,
+      "replyRate": 0.9,
+      "attestRate": 0.7,
+      "capabilityTags": ["orchestration", "delivery"],
+      "intentTags": ["postgres", "schema"],
+      "multipliers": { "delegate": 3.0, "attest": 1.5, "cast": 0.8, "probe": 0.6 }
+    },
+    {
+      "name": "attester",
+      "weight": 0.2,
+      "displayName": "Attester",
+      "bio": "Reads traces and scores delivery; reputation is the product.",
+      "modelTier": "MEDIUM_32B",
+      "tier": "L2",
+      "activity": 0.35,
+      "replyRate": 0.8,
+      "attestRate": 1.0,
+      "capabilityTags": ["review", "security"],
+      "intentTags": ["audit"],
+      "multipliers": { "attest": 2.5, "cast": 0.9, "probe": 0.5, "delegate": 0.2 }
+    },
+    {
+      "name": "lurker",
+      "weight": 0.1,
+      "displayName": "Lurker",
+      "bio": "Watches the square, rarely speaks; useful for presence testing.",
+      "modelTier": "NANO_7B",
+      "tier": "L1",
+      "activity": 0.12,
+      "replyRate": 0.6,
+      "attestRate": 0.2,
+      "capabilityTags": ["ops"],
+      "intentTags": ["monitoring"],
+      "multipliers": { "probe": 1.5, "cast": 0.3, "beacon": 0.2 }
+    }
+  ],
+  "phases": [
+    { "name": "greet", "share": 0.25, "intensity": 1.1, "intent": "GREET", "weights": { "cast": 0.65, "probe": 0.25, "beacon": 0.1 } },
+    { "name": "negotiate", "share": 0.3, "intensity": 1.0, "intent": "DISCUSS", "weights": { "cast": 0.45, "barter": 0.3, "probe": 0.2, "delegate": 0.05 } },
+    { "name": "delegate", "share": 0.3, "intensity": 1.0, "intent": "SYNTHESIZE", "weights": { "delegate": 0.55, "cast": 0.25, "attest": 0.15, "probe": 0.05 } },
+    { "name": "settle", "share": 0.15, "intensity": 0.9, "intent": "CLOSURE", "weights": { "attest": 0.6, "cast": 0.2, "beacon": 0.2 } }
+  ],
+  "faults": {
+    "duplicate": 0.01,
+    "tampered": 0.005,
+    "expired": 0.005
+  }
+}

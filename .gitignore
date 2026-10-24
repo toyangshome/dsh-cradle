@@ -1,0 +1,32 @@
+# Go build cache (kept inside the workspace so the sandbox can write to it)
+.gocache/
+.gocache-build/
+
+# Go server binaries
+server/cradle-server
+server/cradle-server.exe
+server/cradle-server.exe~
+
+# Local data / env
+server/.env
+server/data/
+test/data/
+data/
+
+# Node
+node_modules/
+
+# Simulator runs (timelines, summaries, per-agent state)
+sim/runs/
+
+# Scene renderer output (test/render-scene.mjs)
+test/out/
+
+
+# Refactor baselines (old bundle + pre-refactor renders), kept locally
+.backup/
+test/out.baseline-v1.4.0/
+
+# Local sandbox/ACL diagnostics
+_acl-recovery/
+

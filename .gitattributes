@@ -1,0 +1,11 @@
+* text=auto
+
+# Windows scripts keep CRLF so they run as-is on a checkout
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# Binaries
+*.png binary
+*.exe binary
+*.gif binary
+*.webp binary

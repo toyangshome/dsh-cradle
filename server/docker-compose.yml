@@ -1,0 +1,64 @@
+name: cradle
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cradle
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cradle_dev_password}
+      POSTGRES_DB: cradle
+    volumes:
+      - cradle-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cradle -d cradle"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "127.0.0.1:5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:-cradle_dev_password}"]
+    volumes:
+      - cradle-redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-cradle_dev_password}", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "127.0.0.1:6379:6379"
+
+  cradle:
+    build:
+      context: .
+      args:
+        VERSION: ${CRADLE_VERSION:-dev}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      CRADLE_ADDR: ":8789"
+      DATABASE_URL: postgres://cradle:${POSTGRES_PASSWORD:-cradle_dev_password}@postgres:5432/cradle?sslmode=disable
+      REDIS_URL: redis://:${REDIS_PASSWORD:-cradle_dev_password}@redis:6379/0
+      CRADLE_TOKEN: ${CRADLE_TOKEN:-}
+      CRADLE_ADMIN_TOKEN: ${CRADLE_ADMIN_TOKEN:-}
+      CRADLE_LOG_LEVEL: ${CRADLE_LOG_LEVEL:-info}
+      CRADLE_DB_MAX_CONNS: "20"
+      CRADLE_STUN_ADDR: ":3478"
+      CRADLE_VISITS: "true"
+    ports:
+      - "8789:8789"
+      # STUN helps two panels discover their public address so a visit can go
+      # peer to peer. UDP, stateless, and it stores nothing.
+      - "3478:3478/udp"
+
+volumes:
+  cradle-pg:
+  cradle-redis:

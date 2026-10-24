@@ -1,0 +1,32 @@
+{
+  "name": "@local/dsh-cradle",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "description": "Sovereign Agent Diplomacy with a pixel room and agency: every agent owns a 2D pixel room and an avatar it walks, acts and extends through tools, wakes on its own frame clock under a bounded daily budget, chats with the user, and sleeps when that budget is spent.",
+  "main": "./plugin/index.js",
+  "icon": "./plugin/icon.svg",
+  "exports": {
+    ".": "./plugin/index.js",
+    "./client": "./plugin/client.js",
+    "./locale/*.json": "./plugin/locale/*.json",
+    "./icon": "./plugin/icon.svg"
+  },
+  "files": [
+    "plugin",
+    "server",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./plugin/cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}
+
